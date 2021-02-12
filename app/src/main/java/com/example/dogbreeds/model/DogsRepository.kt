@@ -26,7 +26,8 @@ class DogsRepository (private val dogsDao: DogsDao){
         try {
             val response = retrofitClient.fetchDogsData()
             when (response.code()){
-                in 200..299 -> response.body()?.let { dogsDao.insertAllDogs(convertedData(it[0]))}
+                in 200..299 -> response.body()?.let {
+                    dogsDao.insertAllDogs(convertedData(it))}
                 in 300..301 -> Log.d("REPO","${response.code()} --- ${response.errorBody()}")
                 else -> Log.d("REPO","${response.code()} --- ${response.errorBody()}")
 

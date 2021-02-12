@@ -14,14 +14,13 @@ class BreedsAdapter : RecyclerView.Adapter<BreedsAdapter.BreedsVH>(){
         listBreeds = list
         notifyDataSetChanged()
     }
-//*****************************************************************
+
     inner class BreedsVH(private val mBinding: ListBreedsBinding) : RecyclerView.ViewHolder(mBinding.root) {
         fun bind(breed : DogsEntity){
         mBinding.tvBreed.text = breed.breed
 
         }
     }
-    //******************************************************************** aquí debe estar el problema
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BreedsVH {
         return BreedsVH(ListBreedsBinding.inflate(LayoutInflater.from(parent.context)))

@@ -1,6 +1,7 @@
 package com.example.dogbreeds
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -38,6 +39,7 @@ class FirstFragment : Fragment() {
         mBinding.rvBreeds.layoutManager = LinearLayoutManager(context)
         viewModel.allBreeds.observe(viewLifecycleOwner, Observer {
             it?.let {
+                Log.d("debug", "$it")
                 adapter.update(it)
             }
         })
